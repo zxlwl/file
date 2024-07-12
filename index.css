@@ -1,0 +1,327 @@
+.b {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff00;
+}
+.header {
+  display: flex;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  height: 6vh;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.header .left {
+  display: flex;
+  height: 6vh;
+  width: auto;
+  align-items: center;
+}
+.header .left .img {
+  height: 100%;
+  width: 6vh;
+  border-radius: 100%;
+  background-image: url(https://static.codemao.cn/pickduck/BymXuOfw0.png?hash=FnI52cbSlbquo8GX5Rf0-l7EYORI);
+  background-size: cover;
+}
+.header .left .title {
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 3px #414141;
+}
+.header .right {
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.header .right .search {
+  border-radius: 20px;
+  border: 0px;
+  width: 240px;
+  height: 20px;
+}
+.header .right button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  background-color: #ffffff00;
+}
+.header .right button svg {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.body {
+  display: flex;
+  background-color: #190d0d;
+  width: auto;
+  height: 84vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  border-radius: 10px;
+}
+.body .body_left {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  width: 300px;
+  background-color: #8d8d8d;
+  border-radius: 10px 0 0 10px;
+}
+.body .body_left .main {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  overflow: auto;
+}
+.body .body_left .loader {
+  display: none;
+  flex-direction: row;
+  transform: rotate(180deg);
+  justify-content: right;
+  border-radius: 10px;
+  transition: 0.4s ease-in-out;
+}
+.body .body_left .loader:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+.body .body_left .currentplaying {
+  display: flex;
+  margin: 1em;
+}
+.body .body_left .spotify {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.6em;
+}
+.body .body_left .heading {
+  color: black;
+  font-size: 1.1em;
+  font-weight: bold;
+  align-self: center;
+}
+.body .body_left .loading {
+  display: flex;
+  margin-top: 1em;
+  margin-left: 0.3em;
+}
+.body .body_left .load {
+  width: 2px;
+  height: 33px;
+  background-color: limegreen;
+  animation: 1s move6 infinite;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+.body .body_left .load:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.body .body_left .load:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.body .body_left .load:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.body .body_left .play {
+  position: relative;
+  left: 0.35em;
+  height: 1.6em;
+  width: 1.6em;
+  clip-path: polygon(50% 50%, 100% 50%, 75% 6.6%);
+  background-color: black;
+  transform: rotate(-90deg);
+  align-self: center;
+  margin-top: 0.7em;
+  justify-self: center;
+}
+.body .body_left .albumcover {
+  position: relative;
+  margin-right: 1em;
+  height: 40px;
+  width: 40px;
+  background-color: #e9e8e8;
+  align-self: center;
+  border-radius: 5px;
+  background-size: cover;
+}
+.body .body_left .song {
+  position: relative;
+  transform: rotate(180deg);
+  margin-right: 1em;
+  color: black;
+  align-self: center;
+}
+.body .body_left .artist {
+  font-size: 0.6em;
+}
+@keyframes move6 {
+  0% {
+    height: 0.2em;
+  }
+  25% {
+    height: 0.7em;
+  }
+  50% {
+    height: 1.5em;
+  }
+  100% {
+    height: 0.2em;
+  }
+}
+.body .body_right {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  background-color: #a8a8a8;
+  border-radius: 0 10px 10px 0;
+}
+.body .body_right .page {
+  display: none;
+  height: 35px;
+  background-color: #ffffff;
+  margin-bottom: 0px;
+  padding: 0px;
+  align-items: center;
+  justify-content: space-between;
+}
+.body .body_right .page .left {
+  margin-right: 20px;
+}
+.body .body_right .page .left input {
+  border: 0px;
+  background-color: #ffffff00;
+  width: 50px;
+  text-align: center;
+  font-size: 15px;
+}
+.body .body_right .page .right span {
+  font-size: 35px;
+}
+.body .body_right .search_reason {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.body .body_right .search_reason ul {
+  height: 100%;
+  padding-left: 0;
+  padding-top: 0;
+  margin-top: 0px;
+}
+.body .body_right .search_reason ul li {
+  display: flex;
+  list-style: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  height: 30px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s;
+  margin-bottom: 1px;
+  overflow: auto;
+}
+.body .body_right .search_reason ul li .title {
+  text-align: center;
+  font-size: 20px;
+}
+.body .body_right .search_reason ul li .right {
+  text-align: center;
+  font-size: 15px;
+}
+.body .body_right .search_reason ul li:hover {
+  background-color: #cdcdcd;
+}
+.end {
+  display: flex;
+  border-radius: 10px;
+  height: 6vh;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.end .head {
+  display: flex;
+  flex: 2;
+  justify-content: space-between;
+  margin-top: 0px;
+  align-items: center;
+}
+.end .head .left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: auto;
+  margin-top: 0px;
+}
+.end .head .left .mode {
+  display: none;
+  font-size: 4vh;
+}
+.end .head .left .mode:nth-child(1) {
+  display: block;
+}
+.end .head .play {
+  display: flex;
+  margin-top: 0px;
+}
+.end .head .play .play_left {
+  font-size: 5vh;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+.end .head .play .play_center {
+  font-size: 5vh;
+  margin-top: 0px;
+}
+.end .head .play .play_center:nth-child(2) {
+  display: none;
+}
+.end .head .play .play_right {
+  margin-left: 15px;
+  font-size: 5vh;
+  margin-top: 0px;
+}
+.end .head .right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: auto;
+  margin-top: 0px;
+}
+.end .head .right span {
+  margin-top: 0px;
+  font-size: 4vh;
+}
+.end .jindu {
+  flex: 1;
+  margin-bottom: 0px;
+}
+.end .jindu .jindutiao {
+  display: flex;
+  align-items: center;
+  height: 5px;
+  width: 10%;
+  background-color: #006eff;
+  border-radius: 2px;
+  position: relative;
+}
+.end .jindu .jindutiao_di {
+  height: 5px;
+  width: 100%;
+  background-color: #c9c9c9;
+  border-radius: 2px;
+}
+.end .jindu .jindutiao_dian {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: #0015ff;
+  position: absolute;
+  left: 50px;
+}
