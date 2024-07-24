@@ -53,6 +53,7 @@
   margin-right: 5px;
 }
 .body {
+  position: relative;
   display: flex;
   background-color: #190d0d;
   width: auto;
@@ -60,6 +61,58 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   border-radius: 10px;
+  margin-left: 0px;
+}
+.body .gechi {
+  display: flex;
+  margin: 0px;
+  width: 0%;
+  height: 0px;
+  background-color: #8b8b8b;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.body .gechi .imgdi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-radius: 10px;
+}
+.body .gechi .imgdi img {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+.body .gechi .gechiwenzi {
+  flex: 3;
+  height: 100%;
+  text-align: center;
+  overflow: auto;
+}
+.body .gechi .gechiwenzi ul {
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: 84vh;
+  transition: all 0.3s;
+}
+.body .gechi .gechiwenzi ul li {
+  font-size: 18px;
+  margin-top: 12px;
+  list-style: none;
+  transition: all 0.3s;
+}
+.body .gechi .gechiwenzi li {
+  font-size: 18px;
+  margin-top: 12px;
+  list-style: none;
+  transition: all 0.3s;
 }
 .body .body_left {
   display: flex;
@@ -71,7 +124,7 @@
 }
 .body .body_left .main {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   width: 100%;
   overflow: auto;
 }
@@ -294,7 +347,11 @@
   width: auto;
   margin-top: 0px;
 }
-.end .head .right span {
+.end .head .right .xiazai {
+  margin-top: 0px;
+  font-size: 4vh;
+}
+.end .head .right .gechi {
   margin-top: 0px;
   font-size: 4vh;
 }
@@ -309,6 +366,7 @@
   width: 10%;
   background-color: #006eff;
   border-radius: 2px;
+  transition: all 0.3s;
   position: relative;
 }
 .end .jindu .jindutiao_di {
@@ -316,6 +374,7 @@
   width: 100%;
   background-color: #c9c9c9;
   border-radius: 2px;
+  transition: all 0.3s;
 }
 .end .jindu .jindutiao_dian {
   height: 7px;
@@ -323,5 +382,10 @@
   border-radius: 50%;
   background-color: #0015ff;
   position: absolute;
+  transition: all 0.3s;
   left: 50px;
+}
+.end .jindu .jindutiao_dian:hover {
+  height: 10px;
+  width: 10px;
 }
