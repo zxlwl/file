@@ -1,6 +1,7 @@
 (function () {
     let playmodetype = 1
     let bool_sfanxia = 0
+
     //进度条
     jindutiao_point.addEventListener('mousedown', function () {
         bool_sfanxia = 1;
@@ -27,6 +28,7 @@
                 // console.log((e.clientX - 7) / jindutiao_di.clientWidth * playaudio.duration);
                 //跳转秒数 
                 playaudio.currentTime = (e.clientX - 7) / jindutiao_di.clientWidth * playaudio.duration
+                change(playaudio.currentTime)
             }
         }
     })
@@ -41,6 +43,7 @@
             // console.log((e.clientX - 7) / jindutiao_di.clientWidth * playaudio.duration);
             //跳转秒数 
             playaudio.currentTime = (e.clientX - 7) / jindutiao_di.clientWidth * playaudio.duration
+            change(playaudio.currentTime)
         }
     })
     //调整进度条
@@ -51,6 +54,9 @@
     //能播放就播放并调整按钮
     playaudio.addEventListener('canplay', function () {
         playaudio.play()
+        //在这放歌词渲染的函数
+
+        start(0)
         sfbf = 1
         play_dom_sfbf[1].style.display = 'none'
         play_dom_sfbf[0].style.display = 'block'
@@ -77,6 +83,8 @@
             play_dom_sfbf[1].style.display = 'none'
             play_dom_sfbf[0].style.display = 'block'
             playaudio.play()
+            // start(0)
+            start(playaudio.currentTime)
             sfbf = 1
 
         }
@@ -84,6 +92,7 @@
             play_dom_sfbf[0].style.display = 'none'
             play_dom_sfbf[1].style.display = 'block'
             playaudio.pause()
+            pause()
             sfbf = 0
         }
     })
@@ -91,12 +100,14 @@
     kuaijin.addEventListener('click', function () {
         if (sfbf) {
             playaudio.currentTime = playaudio.currentTime + 5
+            change(playaudio.currentTime)
         }
 
     })
     kuaitui.addEventListener('click', function () {
         if (sfbf) {
             playaudio.currentTime = playaudio.currentTime - 5
+            change(playaudio.currentTime)
         }
 
     })
@@ -104,28 +115,28 @@
 
     //播放完
     playaudio.addEventListener('ended', function (e) {
-        console.log(7777777);
+        // console.log(7777777);
         for (let i = 0; i < playmode_list.length; i++) {
-            console.log(playmode_list[i].style.display);
+            // console.log(playmode_list[i].style.display);
             if (window.getComputedStyle(playmode_list[i]).display == 'block') {
-                console.log('进去');
+                // console.log('进去');
                 if (playmode_list[i].dataset.playmodeid === '1') {
-                    console.log('执行');
+                    // console.log('执行');
                     var randomNumber = Math.floor(Math.random() * playlist.length);
-                    console.log(randomNumber);
+                    // console.log(randomNumber);
                     play_chick(play_listnow.children[randomNumber + 3], randomNumber)
 
 
                 }
                 else if (playmode_list[i].dataset.playmodeid === '2') {
-                    console.log(palysongnow + 1);
+                    // console.log(palysongnow + 1);
                     if (palysongnow + 1 == playlist.length) {
-                        console.log(play_listnow.children[3]);
+                        // console.log(play_listnow.children[3]);
                         palysongnow = 0
                         play_chick(play_listnow.children[3], palysongnow)
                     }
                     else {
-                        console.log(play_listnow.children[palysongnow + 3]);
+                        // console.log(play_listnow.children[palysongnow + 3]);
                         palysongnow++
                         play_chick(play_listnow.children[palysongnow + 3], palysongnow)
                     }
@@ -140,9 +151,45 @@
     xiazai.addEventListener('click', function () {
         const a = document.createElement('a')
         a.href = playlist[palysongnow].url
-        console.log(playlist[palysongnow].name);
+        // console.log(playlist[palysongnow].name);
+        // a.setAttribute('target', '_blank')
         a.download = playlist[palysongnow].name + '.mp3'
         a.click();
+    })
+
+    gechidianji.addEventListener('click', e => {
+        // console.log(123);
+        // console.log(gechi.dataset.id);
+        if (Boolean(Number(gechi.dataset.id))) {
+
+            // console.log(1);
+            body_left.style.width = '100%'
+            body_right.style.width = '100%'
+            setpage.style.display = 'flex'
+            // setpage.children[0].children[0].style.display = 'none'
+            // setpage.children[1].children[0].style.display = 'none'
+            // setpage.children[1].children[1].style.display = 'none'
+            gechi.style.height = '0%'
+            gechi.style.width = '0%'
+            gechi.dataset.id = 0
+            gechi.children[0].children[0].style.display = 'none'
+
+        }
+        else {
+            // console.log(0);
+            body_left.style.width = '0px'
+            body_right.style.width = '0px'
+            setpage.style.display = 'none'
+            // setpage.children[0].children[0].style.width = '0%'
+            // setpage.children[1].children[0].style.width = '0%'
+            // setpage.children[1].children[1].style.width = '0%'
+            gechi.style.height = '100%'
+            gechi.style.width = '100%'
+            gechi.dataset.id = 1
+            gechi.children[0].children[0].style.display = 'block'
+
+
+        }
     })
 })()
 
@@ -180,7 +227,7 @@ function play_listnew(raw) {
         // console.log(playlist[i].id);
         // console.log(raw['song_data']['id'])
         if (playlist[i].id === raw['song_data']['id']) {
-            console.log(123);
+            // console.log(123);
             play_chick(play_listnow.children[i + 3], i)
             return 1
         }
@@ -201,6 +248,8 @@ function play_chick(li, i) {
     li.children[2].innerHTML = '<div class="load"></div><div class="load"></div><div class="load"></div><div class="load"></div>'
     palysongnow = i
     playaudio.src = playlist[i].url
+    gechi.children[0].children[0].src = playlist[i].photo
+    set(playlist[i].lyric)
     palysongnow = i
     // playaudio.play()
 }
@@ -229,7 +278,182 @@ function play_addsong(raw) {
     playlist.push(newsongli)
     // console.log(playlist);
     play_listnow.appendChild(newsong)
+    gechi.children[0].children[0].src = raw['song_data']['pic']
     playaudio.src = raw['song_data']['url']
+    set(raw['song_data']['lyric'])
     palysongnow = playlist.length - 1
     // playaudio.play()
+}
+
+
+function gundong(id) {
+    // console.log(lilist[id].offsetTop - (gechiul.offsetHeight / 2));
+    gechiul.scrollTop = lilist[id].offsetTop - (gechiul.offsetHeight / 2)
+    if (shangcigundong == -1) { }
+    else {
+        lilist[shangcigundong].style.fontSize = '18px'
+    }
+    // console.log(lilist[id]);
+    lilist[id].style.fontSize = '22px'
+    shangcigundong = id;
+
+}
+
+
+//渲染
+function xuanran(benjugechi, line) {
+    const li = lilist[0].cloneNode()
+    // console.log(li);
+    li.style.display = 'block'
+    li.innerText = benjugechi
+    gechiul.appendChild(li)
+}
+
+//推送
+function tuishong(benjugechi, line) {
+    gundong(line)
+}
+
+
+function set(lyrics) {
+    if (statuss == true) {
+        this.emit('onError', '请先暂停推送再设置！')
+        this.widgetWarn('请先暂停推送再设置！')
+    }
+    lyric = lyrics
+    setted = true;
+    const line = polyfillForCoco();
+    lines = line.length
+    line.forEach((line, i) => {
+        const match = line.match(/\[(\d+:\d+\.\d+)\](.*)/);
+        if (match) {
+            const [, , content] = match;
+            // this.emit('onParse', content.trim(), i);
+            xuanran(content.trim(), i)
+        }
+    })
+    // this.emit('onAccomplish')
+    finishgechi()
+}
+
+function start() {
+    if (setted == false) {
+        // this.emit('onError', '请先设置歌词！')
+        // widgetWarn('请先设置歌词！');
+        return;
+    }
+    if (statuss == true) {
+        // this.emit('onError', '请先暂停推送再开始！')
+        // this.widgetWarn('请先暂停推送再开始！')
+    }
+    clearObject();
+    statuss = true;
+    paused = false;
+    this.play();
+}
+
+
+function change(seconds) {
+    if (setted == false) {
+        this.emit('onError', '请先设置歌词！')
+        this.widgetWarn('请先设置歌词！');
+        return;
+    }
+    if (statuss == false) {
+        this.emit('onError', '请先开始推送！')
+        this.widgetWarn('请先开始推送');
+        return;
+    }
+    statuss = false;
+    paused = true;
+    clearObject();
+    start(seconds);
+}
+
+function pause() {
+    if (setted == false) {
+        this.emit('onError', '请先设置歌词！')
+        this.widgetWarn('请先设置歌词！');
+        return;
+    }
+    if (statuss == false) {
+        this.emit('onError', '请先开始推送！')
+        this.widgetWarn('请先开始推送');
+        return;
+    }
+    statuss = false;
+    paused = true;
+    clearObject();
+}
+
+function start(addingSeconds) {
+    // console.log(globalObject)
+    if (setted == false) {
+        this.emit('onError', '请先设置歌词！')
+        this.widgetWarn('请先设置歌词再！');
+        return;
+    }
+    if (statuss == true) {
+        this.emit('onError', '已经在推送了！')
+        this.widgetWarn('已经在推送了！！');
+        return;
+    }
+    paused = false;
+    statuss = true;
+    const lines = polyfillForCoco();
+    let addingSecond = addingSeconds;
+    lines.forEach((line, i) => {
+        const match = line.match(/\[(\d+:\d+\.\d+)\](.*)/);
+        if (match) {
+            const [, time, content] = match;
+            const [minutes, seconds] = time.split(':')
+                .map(parseFloat);
+            const totalSeconds = minutes * 60 + seconds - addingSecond;
+            if ((minutes * 60 + seconds) < addingSecond) return;
+            const timeoutId = setTimeout(() => {
+                // console.log(666);
+                if (!paused) {
+                    // this.emit('onPush', content.trim(), i + 1);
+                    // console.log(777);
+                    tuishong(content.trim(), i + 1)
+                }
+            }, totalSeconds * 1000);
+            addToGlobalObject(i, timeoutId);
+        }
+    });
+}
+
+function addToGlobalObject(key, timeoutId) {
+    globalObject[key] = timeoutId;
+}
+
+function clearObject() {
+    Object.values(globalObject)
+        .forEach(timeoutId => {
+            clearTimeout(timeoutId);
+        });
+    while (globalObject.length > 0) {
+        globalObject.pop();
+    }
+    globalObject = {};
+}
+
+function polyfillForCoco() {
+    /* 特别说明： coco在将源字符串重新保存为变量时，会把\n变成 \\n导致分割失败，这个函数是一个hack意味的修复*/
+    let singleSplit = lyric.split('\n');
+    let doubleSplit = lyric.split('\\n');
+    if (singleSplit.length >= doubleSplit.length) {
+        return singleSplit;
+    } else {
+        return doubleSplit;
+    }
+}
+
+
+//歌词解析完成
+function finishgechi() {
+    lilist = document.querySelectorAll('.body .gechi .gechiwenzi li')
+    // gechiul = document.querySelector('.body .gechi .gechiwenzi')
+    lilist[1].style.marginTop = `${body.offsetHeight / 2}px`
+
 }
