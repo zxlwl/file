@@ -324,6 +324,7 @@ function set(lyrics) {
     setted = true;
     const line = polyfillForCoco();
     lines = line.length
+    gechiul.innerHTML = '<li data-gechi-id="0" style="display: none;">gechi1</li>'
     line.forEach((line, i) => {
         const match = line.match(/\[(\d+:\d+\.\d+)\](.*)/);
         if (match) {
