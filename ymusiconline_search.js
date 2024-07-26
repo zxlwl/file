@@ -66,13 +66,14 @@ function get_page(key, page, limit, reasontext, setpage) {
         let raw = response.data
         if (raw['status']) {
             // console.log(reasontext.children[1]);
-            let li = reasontext.children[1].cloneNode(true);
+            let li = reasontext.children[0].cloneNode(true);
             // console.log(li.children[0]);
             reasontext.innerHTML = ''
             setpage.style.display = 'flex'
             for (let i = 0; i < raw['song_data'].length; i++) {
                 // console.log(li.children[0]);
-                li.children[0].innerHTML = raw['song_data'][i]['name']
+                li.style.display = 'flex'
+                li.children[0].innerText = raw['song_data'][i]['name']
                 li.dataset.id = raw['song_data'][i]['id']
                 let artist = '';
                 for (let j = 0; j < raw['song_data'][i]['artist'].length; j++) {
@@ -82,7 +83,8 @@ function get_page(key, page, limit, reasontext, setpage) {
                 if (artist.length >= 10) {
                     artist = artist.slice(0, 10)
                 }
-                li.children[1].innerHTML = (artist + '-' + raw['song_data'][i]['album'])
+                li.children[1].children[0].innerHTML = artist;
+                li.children[1].children[1].innerHTML = raw['song_data'][i]['album']
                 reasontext.appendChild(li)
                 li = reasontext.children[0].cloneNode(true);
             }
