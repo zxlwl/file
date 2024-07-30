@@ -1,0 +1,155 @@
+* {
+  cursor: url(192696.png), default;
+}
+.a {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.a .di_img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background-image: url(200341-17175890212ada.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  filter: blur(0px);
+  -webkit-filter: blur(3px);
+}
+.a .header {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: #ffffff00;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.a .header .wenzi {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s;
+}
+.a .header .wenzi h2 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding-bottom: 0px;
+}
+.a .header .wenzi a {
+  list-style: none;
+  text-decoration: none;
+}
+.a .header .wenzi a span {
+  font-size: 35px;
+  color: #343434;
+}
+.a .header .i {
+  width: 80px;
+  height: 80px;
+  background-image: url(https://static.codemao.cn/avatar/S14X_kxWC);
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: all 0.2s;
+}
+.a .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  margin-top: 100vh;
+  background-color: #cccccc;
+  transition: all 0.2s;
+}
+.a .list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+.a .list li {
+  display: flex;
+  list-style: none;
+  height: 300px;
+  padding: 0px;
+  width: 80%;
+  margin: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.a .list li img {
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+}
+.a .list li .wenzhi {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.a .list li .wenzhi .title {
+  font-size: 30px;
+  font-weight: 600;
+}
+.a .list li .wenzhi .dis {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.wenzhang {
+  position: fixed;
+  top: 10vh;
+  height: 90vh;
+  width: 100vw;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  border-radius: 10px 10px 0 0;
+  margin-left: 0;
+  left: 0;
+  overflow: auto;
+}
+.wenzhang .title {
+  font-size: 26px;
+  text-align: center;
+  font-weight: 600;
+}
+.wenzhang .xuanran {
+  font-size: 18px;
+}
+.dang {
+  position: fixed;
+  top: 0;
+  height: 10vh;
+  left: 0;
+  width: 100vw;
+  background-color: #ffffff00;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  transition: all 0.5s;
+  background-color: #c4c4c4;
+}
+#editor-text-area {
+  background-color: #ffffff00;
+}
