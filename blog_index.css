@@ -1,5 +1,5 @@
 * {
-  cursor: url(https://static.codemao.cn/pickduck/HymfVQIKA.png?hash=FmNMShDSNxdaZ_ON1Eqm_WV0LGLa), default;
+  cursor: url(192696.png), default;
 }
 .a {
   display: flex;
@@ -16,7 +16,7 @@
   z-index: -1;
   width: 100%;
   height: 100vh;
-  background-image: url(https://static.codemao.cn/pickduck/SkBizQLFR.jpg?hash=Fu6PZ-g-ytlix7Sdhc-PM-jd-X5x);
+  background-image: url(200341-17175890212ada.jpg);
   background-size: cover;
   border-radius: 10px;
   filter: blur(0px);
@@ -48,11 +48,19 @@
   margin-bottom: 5px;
   padding-bottom: 0px;
 }
-.a .header .wenzi a {
+.a .header .wenzi .biaoqian {
+  display: flex;
+  flex-direction: row;
+}
+.a .header .wenzi .biaoqian a {
   list-style: none;
   text-decoration: none;
+  height: 20px;
+  width: 20px;
+  padding-left: 10px;
+  margin-right: 10px;
 }
-.a .header .wenzi a span {
+.a .header .wenzi .biaoqian a span {
   font-size: 35px;
   color: #343434;
 }
