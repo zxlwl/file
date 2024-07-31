@@ -4,6 +4,8 @@ const wenzhang_title = document.querySelector('.wenzhang .title');
 const wenzhang = document.querySelector('.wenzhang');
 const dang = document.querySelector('.dang');
 const chacha = document.querySelector('.chacha');
+const riqi = document.getElementById('date')
+let data = [];
 // const wenzhang_text = document.querySelector('')
 
 (function () {
@@ -144,17 +146,55 @@ const chacha = document.querySelector('.chacha');
         console.log(e.target.dataset.id);
 
 
-        sethtml(e.target.dataset.id)
+        const f = sethtml(e.target.dataset.id)
+        wenzhang.style.display = 'block'
+        wenzhang.style.top = '100%'
+        anime({
+            targets: wenzhang,
+            // translateX: 250,
+            top: '10%',
+            duration: 1500,
+            autoplay: true,
+            // easing: 'easeInOutSine'
+            // easing: 'easeInOutQuart'
+            easing: 'spring(1, 50, 100, 10)'
+        });
+        wenzhang_title.innerText = f['title']
+        editor.setHtml(f['data'])
+        riqi.innerText = f['time']
     })
 
 
     dang.addEventListener('click', () => {
-        wenzhang.style.display = 'none'
+
+        anime({
+            targets: wenzhang,
+            // translateX: 250,
+            top: '100%',
+            duration: 1500,
+            autoplay: true,
+            // easing: 'easeInOutSine'
+            // easing: 'easeInOutQuart'
+            easing: 'spring(1, 50, 100, 10)'
+        });
+        // wenzhang.style.display = 'none'
+
     })
-    chacha.addEventListener('click', () => [
-        wenzhang.style.display = 'none'
-    ])
+    chacha.addEventListener('click', () => {
+        anime({
+            targets: wenzhang,
+            // translateX: 250,
+            top: '100%',
+            duration: 1500,
+            autoplay: true,
+            // easing: 'easeInOutSine'
+            // easing: 'easeInOutQuart'
+            easing: 'spring(1, 50, 100, 10)'
+        });
+        // wenzhang.style.display = 'none'
+    })
     shuxin()
+
 })()
 
 
@@ -165,13 +205,18 @@ function shuxin() {
 
 
 function sethtml(id) {
-    table.getTableData(
-        {
-            page: 1,
-            limit: 10,
-            filter: `id=${id}`,
-            id: 'getjutidata'
+    // table.getTableData(
+    //     {
+    //         page: 1,
+    //         limit: 10,
+    //         filter: `id=${id}`,
+    //         id: 'getjutidata'
 
+    //     }
+    // );
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]['id'] == id) {
+            return data[i]
         }
-    );
+    }
 }

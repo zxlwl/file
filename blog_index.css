@@ -150,6 +150,11 @@
   width: 100vw;
   background-color: #ffffff00;
 }
+#date {
+  text-align: center;
+  font-size: 13px;
+  color: #979797;
+}
 ::-webkit-scrollbar {
   width: 6px;
 }
