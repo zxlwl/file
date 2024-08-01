@@ -162,6 +162,18 @@ let data = [];
         wenzhang_title.innerText = f['title']
         editor.setHtml(f['data'])
         riqi.innerText = f['time']
+        const gitalk = new Gitalk({
+            clientID: 'Ov23lizalL5WkM83XigS',
+            clientSecret: '3b8fe1746808cc800bfc1f84582b579678d65bc3',
+            repo: 'talk',
+            owner: 'zxlwl',
+            admin: ['zxlwl'],
+            id: f['id'],
+            labels: 'talk',      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
     })
 
 
