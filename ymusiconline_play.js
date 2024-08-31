@@ -316,10 +316,10 @@ function tuishong(benjugechi, line) {
 
 
 function set(lyrics) {
-    if (statuss == true) {
-        this.emit('onError', '请先暂停推送再设置！')
-        this.widgetWarn('请先暂停推送再设置！')
-    }
+    // if (statuss == true) {
+    //     this.emit('onError', '请先暂停推送再设置！')
+    //     this.widgetWarn('请先暂停推送再设置！')
+    // }
     lyric = lyrics
     setted = true;
     const line = polyfillForCoco();
@@ -338,15 +338,15 @@ function set(lyrics) {
 }
 
 function start() {
-    if (setted == false) {
-        // this.emit('onError', '请先设置歌词！')
-        // widgetWarn('请先设置歌词！');
-        return;
-    }
-    if (statuss == true) {
-        // this.emit('onError', '请先暂停推送再开始！')
-        // this.widgetWarn('请先暂停推送再开始！')
-    }
+    // if (setted == false) {
+    //     // this.emit('onError', '请先设置歌词！')
+    //     // widgetWarn('请先设置歌词！');
+    //     return;
+    // }
+    // if (statuss == true) {
+    //     // this.emit('onError', '请先暂停推送再开始！')
+    //     // this.widgetWarn('请先暂停推送再开始！')
+    // }
     clearObject();
     statuss = true;
     paused = false;
@@ -355,16 +355,16 @@ function start() {
 
 
 function change(seconds) {
-    if (setted == false) {
-        this.emit('onError', '请先设置歌词！')
-        this.widgetWarn('请先设置歌词！');
-        return;
-    }
-    if (statuss == false) {
-        this.emit('onError', '请先开始推送！')
-        this.widgetWarn('请先开始推送');
-        return;
-    }
+    // if (setted == false) {
+    //     this.emit('onError', '请先设置歌词！')
+    //     this.widgetWarn('请先设置歌词！');
+    //     return;
+    // }
+    // if (statuss == false) {
+    //     this.emit('onError', '请先开始推送！')
+    //     this.widgetWarn('请先开始推送');
+    //     return;
+    // }
     statuss = false;
     paused = true;
     clearObject();
@@ -372,16 +372,16 @@ function change(seconds) {
 }
 
 function pause() {
-    if (setted == false) {
-        this.emit('onError', '请先设置歌词！')
-        this.widgetWarn('请先设置歌词！');
-        return;
-    }
-    if (statuss == false) {
-        this.emit('onError', '请先开始推送！')
-        this.widgetWarn('请先开始推送');
-        return;
-    }
+    // if (setted == false) {
+    //     this.emit('onError', '请先设置歌词！')
+    //     this.widgetWarn('请先设置歌词！');
+    //     return;
+    // }
+    // if (statuss == false) {
+    //     this.emit('onError', '请先开始推送！')
+    //     this.widgetWarn('请先开始推送');
+    //     return;
+    // }
     statuss = false;
     paused = true;
     clearObject();
@@ -389,16 +389,16 @@ function pause() {
 
 function start(addingSeconds) {
     // console.log(globalObject)
-    if (setted == false) {
-        this.emit('onError', '请先设置歌词！')
-        this.widgetWarn('请先设置歌词再！');
-        return;
-    }
-    if (statuss == true) {
-        this.emit('onError', '已经在推送了！')
-        this.widgetWarn('已经在推送了！！');
-        return;
-    }
+    // if (setted == false) {
+    //     this.emit('onError', '请先设置歌词！')
+    //     this.widgetWarn('请先设置歌词再！');
+    //     return;
+    // }
+    // if (statuss == true) {
+    //     this.emit('onError', '已经在推送了！')
+    //     this.widgetWarn('已经在推送了！！');
+    //     return;
+    // }
     paused = false;
     statuss = true;
     const lines = polyfillForCoco();
